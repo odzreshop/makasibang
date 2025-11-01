@@ -1,0 +1,193 @@
+div.hud, .hud div, .hud div:before, .hud div:after {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+.hud div:before, .hud div:after {
+  content: '';
+}
+
+.hud-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 500px;
+  animation: fade-in-hud 1s 1s ease-out forwards;
+  opacity: 0;
+}
+
+.hud {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+.hud .circle {
+  border-radius: 50%;
+}
+.hud .orange {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: glow-main 1s 3s ease-in-out forwards;
+  filter: drop-shadow(0 0 4px var(--accent-color));
+}
+.hud .orange .notches {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0px, 0px, 0px);
+  animation: notches-rotate 3s 1s ease-in-out, notches-pulse-rotate 10s 6s ease-in-out alternate infinite;
+}
+.hud .orange .notches .notch {
+  top: 0;
+  left: calc(50% - 2px);
+  width: 4px;
+  height: 50%;
+  transform-origin: bottom center;
+}
+.hud .orange .notches .notch:before {
+  width: 100%;
+  height: 10%;
+  background: var(--accent-color);
+}
+.hud .orange .notches .notch1 { transform: rotate(45deg); }
+.hud .orange .notches .notch2 { transform: rotate(75deg); }
+.hud .orange .notches .notch3 { transform: rotate(105deg); }
+.hud .orange .notches .notch4 { transform: rotate(135deg); }
+.hud .orange .notches .notch5 { transform: rotate(165deg); }
+.hud .orange .notches .notch6 { transform: rotate(195deg); }
+.hud .orange .notches .notch7 { transform: rotate(225deg); }
+.hud .orange .notches .notch8 { transform: rotate(255deg); }
+.hud .orange .notches .notch9 { transform: rotate(285deg); }
+.hud .orange .notches .notch10 { transform: rotate(315deg); }
+.hud .orange .notches .notch11 { transform: rotate(345deg); }
+.hud .orange .notches .notch12 { transform: rotate(375deg); }
+.hud .orange .outer1 {
+  top: 7%; left: 7%; width: 86%; height: 86%;
+  border: 1px dotted var(--accent-color);
+}
+.hud .orange .outer2 {
+  top: 12%; left: 12%; width: 76%; height: 76%;
+  border: 2px solid var(--accent-color);
+}
+.hud .orange .outer3 {
+  top: 20%; left: 20%; width: 60%; height: 60%;
+  border: 1px dotted var(--accent-color);
+}
+.hud .orange .inner1 {
+  top: 22%; left: 22%; width: 56%; height: 56%;
+  border: 1px solid var(--accent-color);
+}
+.hud .orange .inner2 {
+  top: 23%; left: 23%; width: 54%; height: 54%;
+  border: 1px solid var(--accent-color);
+}
+.hud .orange .inner3 {
+  top: 36%; left: 36%; width: 28%; height: 28%;
+  border: 1px dashed var(--accent-color);
+  animation: innerorange3-pulse-3d 2s 4s ease-in-out alternate infinite;
+}
+.hud .orange .topnotches, .hud .orange .bottomnotches {
+  top: 25%; left: 25%; width: 50%; height: 50%;
+  transform: rotate(90deg) translate3d(0px, 0px, 0px);
+  animation: notchestop-rotate 2s 2s ease-in-out, notchestop-3d 2s 4s ease-in-out forwards;
+}
+.hud .orange .topnotches .notch {
+  left: calc(50% - 3px); width: 6px; height: 50%;
+  transform-origin: bottom center;
+}
+.hud .orange .topnotches .notch:before { width: 100%; height: 10%; background: var(--accent-color); }
+.hud .orange .topnotches .notch1 { transform: rotate(-55deg); } .hud .orange .topnotches .notch2 { transform: rotate(-45deg); } .hud .orange .topnotches .notch3 { transform: rotate(-35deg); } .hud .orange .topnotches .notch4 { transform: rotate(-25deg); } .hud .orange .topnotches .notch5 { transform: rotate(-15deg); } .hud .orange .topnotches .notch6 { transform: rotate(-5deg); } .hud .orange .topnotches .notch7 { transform: rotate(5deg); } .hud .orange .topnotches .notch8 { transform: rotate(15deg); } .hud .orange .topnotches .notch9 { transform: rotate(25deg); } .hud .orange .topnotches .notch10 { transform: rotate(35deg); } .hud .orange .topnotches .notch11 { transform: rotate(45deg); } .hud .orange .topnotches .notch12 { transform: rotate(55deg); }
+.hud .orange .bottomnotches .notch {
+  left: calc(50% - 1px); width: 2px; height: 50%;
+  transform-origin: bottom center;
+}
+.hud .orange .bottomnotches .notch:before { width: 100%; height: 10%; background: var(--accent-color); }
+.hud .orange .bottomnotches .notch1 { transform: rotate(125deg); } .hud .orange .bottomnotches .notch2 { transform: rotate(135deg); } .hud .orange .bottomnotches .notch3 { transform: rotate(145deg); } .hud .orange .bottomnotches .notch4 { transform: rotate(155deg); } .hud .orange .bottomnotches .notch5 { transform: rotate(165deg); } .hud .orange .bottomnotches .notch6 { transform: rotate(175deg); } .hud .orange .bottomnotches .notch7 { transform: rotate(185deg); } .hud .orange .bottomnotches .notch8 { transform: rotate(195deg); } .hud .orange .bottomnotches .notch9 { transform: rotate(205deg); } .hud .orange .bottomnotches .notch10 { transform: rotate(215deg); } .hud .orange .bottomnotches .notch11 { transform: rotate(225deg); } .hud .orange .bottomnotches .notch12 { transform: rotate(235deg); }
+
+.hud .orange .center {
+  top: 46%; left: 43%; width: 14%; height: 8%;
+  animation: center-pulse-3d 12s 4s ease-in-out alternate infinite;
+}
+.hud .orange .center .top, .hud .orange .center .bottom { width: 18px; height: 2px; background: var(--accent-color); }
+.hud .orange .center .top:before, .hud .orange .center .bottom:before { height: 9px; width: 2px; background: var(--accent-color); }
+.hud .orange .center .top.left { top: 0; left: 0; }
+.hud .orange .center .top.right { top: 0; right: 0; } .hud .orange .center .top.right:before { right: 0; }
+.hud .orange .center .bottom.left { bottom: 0; left: 0; } .hud .orange .center .bottom.left:before { bottom: 0; }
+.hud .orange .center .bottom.right { bottom: 0; right: 0; } .hud .orange .center .bottom.right:before { bottom: 0; right: 0; }
+
+.hud .blue {
+  top: 32%; left: 32%; width: 36%; height: 36%;
+  animation: glow-blue 1s 3s ease-in-out forwards;
+  filter: drop-shadow(0 0 3px var(--get-color));
+}
+.hud .blue .inner1 { top: 0; left: 0; width: 100%; height: 100%; border: 4px solid var(--get-color); }
+.hud .blue .inner2 {
+  top: 20%; left: 20%; width: 60%; height: 60%;
+  border: 1px solid var(--get-color);
+  animation: innerblue2-pulse-3d 2s 4s ease-in-out alternate infinite;
+}
+.hud .blue .notches {
+  top: 0; left: 0; width: 100%; height: 100%;
+  animation: notches-rotate 3s 1s ease-in-out;
+}
+.hud .blue .notches .notch {
+  top: 0; left: calc(50% - 2px); width: 4px; height: 50%;
+  transform-origin: bottom center;
+}
+.hud .blue .notches .notch:before { width: 100%; height: 20%; background: var(--get-color); }
+.hud .blue .notches .notch1 { transform: rotate(45deg); } .hud .blue .notches .notch2 { transform: rotate(75deg); } .hud .blue .notches .notch3 { transform: rotate(105deg); } .hud .blue .notches .notch4 { transform: rotate(135deg); } .hud .blue .notches .notch5 { transform: rotate(165deg); } .hud .blue .notches .notch6 { transform: rotate(195deg); } .hud .blue .notches .notch7 { transform: rotate(225deg); } .hud .blue .notches .notch8 { transform: rotate(255deg); } .hud .blue .notches .notch9 { transform: rotate(285deg); } .hud .blue .notches .notch10 { transform: rotate(315deg); } .hud .blue .notches .notch11 { transform: rotate(345deg); } .hud .blue .notches .notch12 { transform: rotate(375deg); }
+
+.hud .callout {
+  opacity: 0;
+  width: 0;
+  min-width: 120px;
+  height: auto;
+  border-bottom: 2px solid var(--accent-color);
+}
+.hud .callout.left {
+  bottom: 60px;
+  left: -100px;
+  animation: calloutleft-grow 3s 3s ease-in-out alternate infinite;
+}
+.hud .callout.right {
+  top: 60px;
+  right: -100px;
+  text-align: right;
+  animation: calloutright-grow 3s 4s ease-in-out alternate infinite;
+}
+.hud .callout .title {
+  position: relative; width: 100%;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.hud .callout .body {
+  position: relative; width: 100%;
+  font-size: 1em; 
+  color: var(--text-secondary);
+}
+
+@keyframes glow-main { 0% {filter: drop-shadow(0 0 0 transparent);} 100% {filter: drop-shadow(0 0 4px var(--accent-color));} }
+@keyframes glow-blue { 0% {filter: drop-shadow(0 0 0 transparent);} 100% {filter: drop-shadow(0 0 3px var(--get-color));} }
+@keyframes notches-rotate { 0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);} }
+@keyframes notches-pulse-rotate { 0% {transform: rotate(0deg) translate3d(0px, 0px, 60px);} 100% {transform: rotate(60deg) translate3d(0px, 0px, 70px);} }
+@keyframes notchestop-rotate { 0% {transform: rotate(90deg);} 100% {transform: rotate(0deg);} }
+@keyframes calloutleft-grow { 0% {left: -40px;width: 0;opacity: 0;} 100% {left: -100px;width: 120px;opacity: 1;} }
+@keyframes calloutright-grow { 0% {right: -40px;width: 0;opacity: 0;} 100% {right: -100px;width: 120px;opacity: 1;} }
+@keyframes notches-3d { 0% {transform: translate3d(0px, 0px, 0px);} 100% {transform: translate3d(0px, 0px, 60px);} }
+@keyframes notchestop-3d { 0% {transform: translate3d(0px, 0px, 0px) rotate(0deg);} 100% {transform: translate3d(0px, 0px, 100px) rotate(90deg);} }
+@keyframes innerorange3-pulse-3d { 0% {transform: translate3d(0px, 0px, 0px);} 100% {transform: translate3d(0px, 0px, -40px);} }
+@keyframes innerblue2-pulse-3d { 0% {transform: translate3d(0px, 0px, 0px);} 50% {transform: translate3d(0px, 0px, -30px);} 100% {transform: translate3d(0px, 0px, -150px);} }
+@keyframes center-pulse-3d { 0% {transform: translate3d(0px, 0px, 0px);} 50% {transform: translate3d(0px, 0px, 60px);} 100% {transform: translate3d(0px, 0px, 30px);} }
+@keyframes fade-in-hud { 0% { opacity: 0; transform: scale(0.9); } 100% { opacity: 1; transform: scale(1); } }
